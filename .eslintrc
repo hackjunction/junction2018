@@ -1,0 +1,42 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "airbnb",
+    "plugin:import/errors",
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "rules": {
+    "arrow-body-style": "off",
+    "dot-notation": "off",
+    "import/prefer-default-export": "off",
+    "jsx-a11y/accessible-emoji": "off",
+    "jsx-a11y/alt-text": "warn",
+    "jsx-a11y/anchor-is-valid": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/media-has-caption": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "no-console": "off",
+    "no-use-before-define": "off",
+    "react/forbid-prop-types": "off",
+    "react/jsx-closing-tag-location": "off",
+    "react/jsx-filename-extension": "off",
+    "react/jsx-key": "off",
+    "react/no-array-index-key": "off",
+    "react/prefer-stateless-function": "off",
+    "react/require-default-props": "off",
+    "react/sort-comp": "off",
+    "react/no-danger": "off",
+    "semi": "error",
+    "prettier/prettier": ["error", {
+      "printWidth": 120,
+      "singleQuote": true,
+      "parser": "babylon"
+    }]
+  },
+  "env": {
+    "node": true,
+    "browser": true
+  },
+  "plugins": ["react", "json", "prettier"]
+}
