@@ -8,6 +8,7 @@ import Challenge from './Challenge';
 import AllPartners from './Partners';
 import NotFound from './NotFound';
 import MobileNav from './MobileNav';
+import Header from './Header';
 import Footer from './Footer';
 
 class App extends React.Component {
@@ -54,6 +55,7 @@ class App extends React.Component {
     return (
       <div>
         <MobileNav />
+        <Header />
         <div className="junction_website" id="junction_website">
           <link href="https://fonts.googleapis.com/css?family=Montserrat:300,700,900" rel="stylesheet" />
           <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet" />
