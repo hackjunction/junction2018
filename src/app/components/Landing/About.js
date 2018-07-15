@@ -3,7 +3,7 @@ import { Row, Col } from 'react-flexbox-grid';
 import Scroll from 'react-scroll';
 import Block from '../viewBlocks/Block';
 import BlockHeader from '../viewBlocks/BlockHeader';
-import styles from './About.c.css';
+import styles from './About.c.scss';
 
 const About = () => (
   <Scroll.Element name="about">

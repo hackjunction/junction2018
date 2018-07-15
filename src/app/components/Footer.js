@@ -23,45 +23,41 @@ const Footer = () => (
       <Col sm={4}>
         <h2>SOCIAL</h2>
         <Row center="xs">
-          <Col>
-            <p>
-              <a href="https://www.instagram.com/hackjunction/">
-                <img
-                  className={styles.footer_social_image}
-                  src="https://staging.hackjunction.com/wp-content/uploads/2017/08/ig.png"
-                  alt="Instagram"
-                />
-              </a>
-            </p>
-            <p>
-              <a href="https://blog.hackjunction.com/">
-                <img
-                  className={styles.footer_social_image}
-                  src="https://staging.hackjunction.com/wp-content/uploads/2017/08/md.png"
-                  alt="Medium"
-                />
-              </a>
-            </p>
+          <Col xs={6}>
+            <a href="https://www.instagram.com/hackjunction/">
+              <img
+                className={styles.footer_social_image}
+                src="https://staging.hackjunction.com/wp-content/uploads/2017/08/ig.png"
+                alt="Instagram"
+              />
+            </a>
           </Col>
-          <Col>
-            <p>
-              <a href="https://www.facebook.com/hackjunction">
-                <img
-                  className={styles.footer_social_image}
-                  src="https://staging.hackjunction.com/wp-content/uploads/2017/08/fb.png"
-                  alt="Facebook"
-                />
-              </a>
-            </p>
-            <p>
-              <a href="https://www.twitter.com/hackjunction">
-                <img
-                  className={styles.footer_social_image}
-                  src="https://staging.hackjunction.com/wp-content/uploads/2017/08/fb.png"
-                  alt="Twitter"
-                />
-              </a>
-            </p>
+          <Col xs={6}>
+            <a href="https://blog.hackjunction.com/">
+              <img
+                className={styles.footer_social_image}
+                src="https://staging.hackjunction.com/wp-content/uploads/2017/08/md.png"
+                alt="Medium"
+              />
+            </a>
+          </Col>
+          <Col xs={6}>
+            <a href="https://www.facebook.com/hackjunction">
+              <img
+                className={styles.footer_social_image}
+                src="https://staging.hackjunction.com/wp-content/uploads/2017/08/fb.png"
+                alt="Facebook"
+              />
+            </a>
+          </Col>
+          <Col xs={6}>
+            <a href="https://www.twitter.com/hackjunction">
+              <img
+                className={styles.footer_social_image}
+                src="https://staging.hackjunction.com/wp-content/uploads/2017/08/fb.png"
+                alt="Twitter"
+              />
+            </a>
           </Col>
         </Row>
       </Col>

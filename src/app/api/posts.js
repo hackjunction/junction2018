@@ -19,6 +19,7 @@ export default class ApiPosts {
   static getChallenges() {
     return api.get('/challenges');
   }
+
   static getChallenge(id) {
     //console.log("id: ", id);
     return api.get('/challenge?id=' + id);
@@ -26,5 +27,9 @@ export default class ApiPosts {
 
   static getJobs() {
     return api.get('/jobs');
+  }
+
+  static getPartners(year) {
+    return api.get('/partners' + (year ? '?year=' + year : ''));
   }
 }
