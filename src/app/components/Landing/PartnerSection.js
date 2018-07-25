@@ -29,12 +29,12 @@ class PartnerSection extends Component {
     });
 
     var elems = this.props.categories
-      .map((category, i) => {
+      .map(category => {
         var prio = Math.floor(Number(category.priority) / 100);
         var partners = groups.get(prio);
         if (!partners) return null;
         return [
-          partners.map(partner => {
+          partners.map((partner, i) => {
             return (
               <Col key={i} xs={category.size_xs} md={category.size_md}>
                 <a href={partner.url}>
