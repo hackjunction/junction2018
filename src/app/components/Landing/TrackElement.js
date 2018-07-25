@@ -35,7 +35,7 @@ class TrackElement extends Component {
           <h1>{track.title}</h1>
         </Row>
         <Row center="xs">
-          <div className={styles.text_content} dangerouslySetInnerHTML={{ __html: track.content }} />
+          <div className={styles.text_content} dangerouslySetInnerHTML={{ __html: track.description }} />
         </Row>
         <Row center="xs" onClick={toggle} className={styles.arrow}>
           <div className="fa fa-chevron-up" />

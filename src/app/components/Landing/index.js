@@ -5,7 +5,7 @@ import About from './About';
 // import Apply from './Apply';
 import Tracks from './Tracks';
 import Partners from './Partners';
-import FAQ from './FAQ';
+import Faqs from './Faqs';
 import PreEvents from './PreEvents';
 import Stories from './Stories';
 import Volunteer from './Volunteer';
@@ -76,7 +76,7 @@ class Landing extends React.Component {
           <Partners />
         </div>
         <div id="faq">
-          <FAQ />
+          <Faqs />
         </div>
         <div id="preevents">
           <PreEvents />

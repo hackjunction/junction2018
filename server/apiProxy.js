@@ -14,6 +14,12 @@ apiRouter.get('/posts', (req, res) => {
   });
 });
 
+apiRouter.get('/faqs', (req, res) => {
+  wordpressApi.getFaqs().then(data => {
+    return res.json(data);
+  });
+});
+
 apiRouter.get('/tracks', (req, res) => {
   wordpressApi.getTracks().then(data => {
     res.json(data);

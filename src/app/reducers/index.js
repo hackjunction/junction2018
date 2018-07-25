@@ -6,6 +6,7 @@ import challenges from './challenges';
 import tracks from './tracks';
 import events from './events';
 import jobs from './jobs';
+import faqs from './faqs';
 import partners from './partners';
 
 const reducers = combineReducers({
@@ -17,6 +18,7 @@ const reducers = combineReducers({
   tracks: tracks,
   events: events,
   jobs: jobs,
+  faqs: faqs,
   partners: partners
 });
 
