@@ -78,14 +78,14 @@ $color3: white;
   color: $accent;
 }
 .awesome_overlay {
-  background-color: rgba(53, 226, 223, 0);
+  background-color: transparentize($accent, 1);
   height: 180px;
 }
-
 .awesome_overlay:hover {
-  background-color: rgba(53, 226, 223, 0.3);
+  background-color: transparentize($accent, 0.5);
   transition: background-color 0.3s ease-in, transform 0.3s ease-in;
 }
+
 .arrow {
   font-size: 30px;
   margin-bottom: 20px;
