@@ -6,7 +6,8 @@
 }
 
 .header_wrapper {
-  padding: 2em;
+  padding: 1em;
+  background-color: black;
 }
 
 .header {
@@ -78,7 +79,7 @@
   }
 }
 
-@media only screen and (min-width: 700px) {
+@media only screen and (min-width: 901px) {
   .header {
     flex-direction: row;
     align-items: center;

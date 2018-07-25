@@ -5,6 +5,7 @@ import { ConnectedRouter } from 'react-router-redux';
 import App from './components/App';
 import { history, store } from './store';
 
+import './stylesheets/main.scss';
 import './stylesheets/media_queries.scss';
 
 const target = document.querySelector('#app');

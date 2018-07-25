@@ -1,8 +1,8 @@
 import React from 'react';
-import Scroll from 'react-scroll';
+// import Scroll from 'react-scroll';
 import Hero from './Hero';
 import About from './About';
-import Apply from './Apply';
+// import Apply from './Apply';
 import Tracks from './Tracks';
 import Partners from './Partners';
 import FAQ from './FAQ';
@@ -14,7 +14,7 @@ class Landing extends React.Component {
   render() {
     return (
       <div>
-        <nav className="junction_menu">
+        {/*<nav className="junction_menu">
           <ul>
             <li>
               <Scroll.Link activeClass="active" to="hero" spy smooth duration={500}>
@@ -62,7 +62,7 @@ class Landing extends React.Component {
               </Scroll.Link>
             </li>
           </ul>
-        </nav>
+        </nav>*/}
         <div id="hero">
           <Hero />
         </div>

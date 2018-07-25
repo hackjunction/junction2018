@@ -12,7 +12,7 @@ class PartnerSection extends Component {
     }
   }
   render() {
-    console.log("render")
+    console.log('render');
     console.log(this.props.partners, this.props.year);
     console.log(this.props.partners[this.props.year]);
 
@@ -29,28 +29,23 @@ class PartnerSection extends Component {
     });
 
     var elems = this.props.categories
-    .map((category, i) => {
-      var prio = Math.floor(Number(category.priority) / 100);
-      var partners = groups.get(prio);
-      if (!partners) return null;
-      return [
-        i !== 0 ? (
-          <Col xs={12} md={12}>
-            <hr className={styles.separator} />
-          </Col>
-        ) : null,
-        partners.map(partner => {
-          return (
-            <Col xs={category.size_xs} md={category.size_md}>
-              <a href={partner.url}>
-                <img src={partner.logo} className="responsive" alt={partner.name} />
-              </a>
-            </Col>
-          );
-        })
-      ];
-    })
-    .flatten();
+      .map((category, i) => {
+        var prio = Math.floor(Number(category.priority) / 100);
+        var partners = groups.get(prio);
+        if (!partners) return null;
+        return [
+          partners.map(partner => {
+            return (
+              <Col key={i} xs={category.size_xs} md={category.size_md}>
+                <a href={partner.url}>
+                  <img src={partner.logo} alt={partner.name} className={`responsive ${styles.partnerImage}`} />
+                </a>
+              </Col>
+            );
+          })
+        ];
+      })
+      .flatten();
     return (
       <Row className="junction_partners" center="xs">
         {elems}
