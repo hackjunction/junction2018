@@ -16,8 +16,11 @@ export default class ApiPosts {
     return api.get('/tracks');
   }
 
+  static getCalendarEvents() {
+    return api.get('/calendarEvents');
+  }
+
   static getFaqs() {
-    console.log('GET FAQS');
     return api.get('/faqs');
   }
 
