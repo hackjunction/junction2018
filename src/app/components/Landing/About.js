@@ -8,22 +8,23 @@ import styles from './About.c.scss';
 const About = () => (
   <Scroll.Element name="about">
     <Block className={styles.block}>
-      <Row>
-        <Col xs={12} className="bold text-secondary">
-          <h4>ABOUT</h4>
-        </Col>
-      </Row>
-      <BlockHeader title="JUNCTION?" />
+      <BlockHeader title="ABOUT" />
       <Row className="junction_about">
-        <Col xs={12} className="junction-description">
+        <Col xs={12} className={styles.junctionDescription}>
+          <br />
           Junction is a <span className="text-secondary">meeting point*</span> for thousands of developers, designers,
           and entrepreneurs from around the world.
+          <br />
         </Col>
       </Row>
       <Row>
         <Col xs={12} className="junction-description">
           {' '}
-          <span className="text-tetriary">* of people from 86 countries to be exact.</span>
+          <span className={styles.raise}>
+            <br />
+            <br />
+            <br />* of people from 86 countries to be exact.
+          </span>
         </Col>
       </Row>
     </Block>

@@ -11,15 +11,10 @@ const Hero = () => (
         <Col xs={12}>
           <div>
             <img
-              src="https://staging.hackjunction.com/wp-content/uploads/2018/07/junction2018_website_blob-01.svg"
+              src="https://staging.hackjunction.com/wp-content/uploads/2018/07/junction2018_website_blob-jee.svg"
               alt="Junction Blob pic"
             />
           </div>
-          <h1>
-            JUNCTION
-            <br />
-            2018
-          </h1>
           <br />
         </Col>
       </Row>

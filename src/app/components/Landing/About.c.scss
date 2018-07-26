@@ -1,5 +1,6 @@
 .block {
   min-height: 100vh;
+  color: white;
 }
 
 .blockContent {
@@ -10,4 +11,14 @@
   font-family: "Lato";
   font-size: 18px;
   font-weight: 300;
+}
+
+.junctionDescription {
+  font-family: "Montserrat", sans-serif !important;
+  font-weight: 900 !important;
+  font-size: 30px;
+}
+
+.raise {
+  color: #00FF99;
 }

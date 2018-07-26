@@ -1,9 +1,9 @@
 import React from 'react';
-import { Row, Col } from 'react-flexbox-grid';
+//import { Row, Col } from 'react-flexbox-grid';
 import Headroom from 'react-headroom';
-import styles from './Header.c.scss';
 import { Link } from 'react-router-dom';
 import Media from 'react-media';
+import styles from './Header.c.scss';
 
 const Header = () => (
   <Headroom>
@@ -16,7 +16,7 @@ const Header = () => (
             alt="Logo"
           />
         </Link>
-        <Media query="(min-width: 901px)">
+        {/*<Media query="(min-width: 901px)">
           <nav className={styles.site_nav}>
             <ul>
               <li>
@@ -30,7 +30,7 @@ const Header = () => (
               </li>
             </ul>
           </nav>
-        </Media>
+        </Media>*/}
         <Media query="(max-width: 900px)">
           <span onClick={window.openNavigationMenu}>MENU</span>
         </Media>
