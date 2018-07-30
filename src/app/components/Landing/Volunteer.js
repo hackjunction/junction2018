@@ -15,7 +15,7 @@ const Volunteer = () => (
               Junction could not exist without our year-round volunteer team, which grows up to 300 people closer to the
               main event. Our volunteer applications are now open, join the family!
             </p>
-            <a href="/volunteer">
+            <a href="https://hackjunction.com/volunteer">
               <button className={styles.volunteer_button}>VOLUNTEER</button>
             </a>
           </BlockHeader>
