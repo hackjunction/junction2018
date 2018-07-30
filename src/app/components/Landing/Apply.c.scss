@@ -1,23 +1,64 @@
 @import '../../stylesheets/variables';
 
+
 .block {
   background-color: black;
-  color: #fbfbfb;
-}
-
-.track_row {
+  color: #fbfbfb !important;
   padding-top: 0px;
   padding-bottom: 0px;
 }
 
+.text_section {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
 .text_highlight {
   font-family: "Montserrat";
   font-weight: 700;
   color: $accent;
 }
+
+.title {
+  color: #fbfbfb;
+  word-wrap: break-word;
+  white-space: normal;
+  max-width: 100%;
+  margin-bottom: 30px;
+}
+
+@-webkit-keyframes bouncey {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes bouncey {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
 .apply_button {
+  margin-top: 30px;
   padding: 20px 40px;
-  margin-top: 5%;
   background: none;
   color: #fbfbfb;
   border: none;
@@ -32,7 +73,7 @@
 }
 .apply_button:after,
 .apply_button:before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;

@@ -2,7 +2,7 @@ import React from 'react';
 // import Scroll from 'react-scroll';
 import Hero from './Hero';
 import About from './About';
-// import Apply from './Apply';
+import Apply from './Apply';
 import Tracks from './Tracks';
 import Partners from './Partners';
 import Faqs from './Faqs';
@@ -68,6 +68,9 @@ class Landing extends React.Component {
         </div>
         <div id="about">
           <About />
+        </div>
+        <div id="apply">
+          <Apply />
         </div>
         <div id="tracks">
           <Tracks />
