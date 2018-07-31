@@ -21,6 +21,7 @@
 .junction_logo {
   width: 200px;
   padding-top: 5%;
+  margin-left: 20px;
 }
 
 .site_nav {
@@ -79,7 +80,7 @@
   }
 }
 
-@media only screen and (min-width: 2000px) {
+@media only screen and (min-width: 900px) {
   .header {
     flex-direction: row;
     align-items: center;
