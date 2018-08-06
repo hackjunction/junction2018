@@ -21,6 +21,7 @@ export const getTracks = () => {
         return {
           title: track.title.rendered,
           content: track.content.rendered,
+          description: track.acf.description,
           image: track.acf.image,
           year: track.acf.year,
           challenges: track.acf.challenges
