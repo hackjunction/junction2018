@@ -37,7 +37,7 @@ class CalendarEventElement extends Component {
     ) : null;
     var link2 = calendarEvent.link_2 ? (
       <Col xs={12} md={4}>
-        <a href={calendarEvent.link_1}>
+        <a href={calendarEvent.link_2}>
           <button className={styles.apply_button}>{calendarEvent.link_2_text}</button>
         </a>
       </Col>
