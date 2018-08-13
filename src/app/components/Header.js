@@ -9,7 +9,7 @@ const Header = () => (
   <Headroom>
     <div className={styles.header_wrapper}>
       <header className={styles.header}>
-        <Link to="/">
+        <Link to="https://hackjunction.com">
           <img
             className={styles.junction_logo}
             src="https://staging.hackjunction.com/wp-content/uploads/2017/08/junction_logo-1.png"
