@@ -1,7 +1,6 @@
 import React from 'react';
 //import { Row, Col } from 'react-flexbox-grid';
 import Headroom from 'react-headroom';
-import { Link } from 'react-router-dom';
 import Media from 'react-media';
 import styles from './Header.c.scss';
 
@@ -9,13 +8,13 @@ const Header = () => (
   <Headroom>
     <div className={styles.header_wrapper}>
       <header className={styles.header}>
-        <Link to="https://hackjunction.com">
+        <a href="https://hackjunction.com">
           <img
             className={styles.junction_logo}
             src="https://staging.hackjunction.com/wp-content/uploads/2017/08/junction_logo-1.png"
             alt="Logo"
           />
-        </Link>
+        </a>
         {/*<Media query="(min-width: 901px)">
           <nav className={styles.site_nav}>
             <ul>
