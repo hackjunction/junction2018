@@ -13,7 +13,15 @@ import styles from './Tracks.c.scss';
 class Tracks extends Component {
   componentWillMount() {
     // the first time we load the app, we need that tracks list
-    this.props.dispatch({ type: 'GET_TRACKS' });
+    if (!this.props.tracks || this.props.tracks.length === 0) {
+      this.props.dispatch({ type: 'GET_TRACKS' });
+    }
+    if (!this.props.challenges || this.props.challenges.length === 0) {
+      this.props.dispatch({ type: 'GET_CHALLENGES' });
+    }
+    if (!this.props.partners || !this.props.partners[this.props.year]) {
+      this.props.dispatch({ type: 'GET_PARTNERS', year: 2018 });
+    }
   }
   render() {
     var tracks = this.props.tracks.filter(track => {
@@ -37,7 +45,10 @@ class Tracks extends Component {
 
 Tracks.propTypes = {
   dispatch: PropTypes.func,
-  tracks: PropTypes.array
+  tracks: PropTypes.array,
+  partners: PropTypes.array,
+  challenges: PropTypes.array,
+  year: PropTypes.number
 };
 
 // export the connected class

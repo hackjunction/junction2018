@@ -74,7 +74,7 @@ class Landing extends React.Component {
           <Apply />
         </div>
         <div id="tracks">
-          <Tracks />
+          <Tracks year="2018" />
         </div>
         <div id="partners">
           <Partners />

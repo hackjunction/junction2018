@@ -16,26 +16,56 @@ class TrackElement extends Component {
         scroller.scrollTo(track.slug, {
           duration: 500,
           delay: 100,
-          smooth: true
+          smooth: true,
+          offset: -50
         });
       }, 1000);
     }.bind(this);
     var style = {};
-    console.log('event:', track);
     if (track.image) {
       style = {
         backgroundImage: `url(${track.image})`
       };
     }
-    console.log('style:', style);
     return track.open ? (
       <Col xs={12} md={12} className={styles.open_container}>
         <ScrollElement name={track.slug} />
-        <Row center="xs">
-          <h1>{track.title}</h1>
+        <Row className={styles.header}>
+          <Col xs={12} md={5}>
+            <h1>{track.title}</h1>
+          </Col>
+          <Col xs={12}>
+            <div className={styles.text_content} dangerouslySetInnerHTML={{ __html: track.description }} />
+          </Col>
         </Row>
-        <Row center="xs">
-          <div className={styles.text_content} dangerouslySetInnerHTML={{ __html: track.description }} />
+        <Row className={styles.challenges}>
+          <Col xs={12}>
+            {track.challenges && track.challenges.length ? (
+              <Row>
+                <Col xs={8} md={2}>
+                  <h3>Challenges</h3>
+                </Col>
+              </Row>
+            ) : null}
+            {track.challenges.map((challenge, i) => {
+              var cha = this.props.challenges.filter(cha => cha.id === challenge.id);
+              cha = cha.length > 0 && cha[0];
+              console.log(challenge, cha.content);
+              return (
+                <div key={i}>
+                  <Row>
+                    <Col xs={3} className={styles.challenge_partner}>
+                      {cha && cha.partners && cha.partners.length > 0 && cha.partners[0].name}
+                    </Col>
+                    <Col xs={9}>
+                      <div className={styles.challenge_title}>{challenge.title}</div>
+                      <div className={styles.challenge_content} dangerouslySetInnerHTML={{ __html: cha.content }} />
+                    </Col>
+                  </Row>
+                </div>
+              );
+            })}
+          </Col>
         </Row>
         <Row center="xs" onClick={toggle} className={styles.arrow}>
           <div className="fa fa-chevron-up" />
@@ -43,7 +73,6 @@ class TrackElement extends Component {
       </Col>
     ) : (
       <div onClick={toggle}>
-        <ScrollElement name={track.slug} />
         <div className={`responsive ${styles.trackCell}`} style={style}>
           <div className={styles.awesome_overlay}>
             <div className={styles.inside}>
@@ -58,18 +87,23 @@ class TrackElement extends Component {
 
 TrackElement.propTypes = {
   track: PropTypes.object,
+  challenges: PropTypes.array,
   toggleTrack: PropTypes.func
 };
 
-function mapStateToProps() {
-  return {};
+function mapStateToProps(state) {
+  return {
+    challenges: state.challenges || []
+  };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     toggleTrack(slug) {
+      console.log('dispatched');
       dispatch({ type: 'TRACK_TOGGLE', slug });
-    }
+    },
+    dispatch
   };
 }
 
