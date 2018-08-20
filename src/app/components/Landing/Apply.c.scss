@@ -23,7 +23,7 @@
   word-wrap: break-word;
   white-space: normal;
   max-width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 200px;
 }
 
 @-webkit-keyframes bouncey {
@@ -57,7 +57,7 @@
 }
 
 .apply_button {
-  margin-top: 30px;
+  margin-top: 200px;
   padding: 20px 40px;
   background: none;
   color: #000000;
@@ -68,6 +68,11 @@
   letter-spacing: 3px;
   cursor: pointer;
 }
+
+.appButton {
+  padding-top: 100px;
+}
+
 .apply_button:focus {
   outline: none;
 }

@@ -21,7 +21,28 @@
 .junction_logo {
   width: 200px;
   padding-top: 5%;
-  margin-left: 20px;
+  margin-left: 0px;
+}
+
+.applyLink {
+  text-decoration: none;
+}
+
+.apply2 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.apply {
+  font-family: "Montserrat";
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 10px;
+  margin-bottom: 0;
+  border-color: white;
+  border-style: solid;
+  border-width: 1px;
 }
 
 .site_nav {
@@ -90,5 +111,11 @@
   }
   .site_nav {
     margin-left: auto;
+  }
+  .junction_logo {
+    margin-left: 20px;
+  }
+  .apply {
+    margin-right: 20px;
   }
 }

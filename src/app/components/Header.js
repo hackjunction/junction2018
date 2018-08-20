@@ -15,6 +15,11 @@ const Header = () => (
             alt="Logo"
           />
         </a>
+        <a href="https://apply.hackjunction.com" className={styles.applyLink}>
+          <div className={styles.apply}>
+            <h2 className={styles.apply2}>APPLY</h2>
+          </div>
+        </a>
         {/*<Media query="(min-width: 901px)">
           <nav className={styles.site_nav}>
             <ul>
