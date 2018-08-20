@@ -27,6 +27,7 @@ class TrackElement extends Component {
         backgroundImage: `url(${track.image})`
       };
     }
+
     return track.open ? (
       <Col xs={12} md={12} className={styles.open_container}>
         <ScrollElement name={track.slug} />
@@ -50,12 +51,19 @@ class TrackElement extends Component {
             {track.challenges.map((challenge, i) => {
               var cha = this.props.challenges.filter(cha => cha.id === challenge.id);
               cha = cha.length > 0 && cha[0];
-              console.log(challenge, cha.content);
+              var partners;
+              if (cha.partners && this.props.partners[cha.year]) {
+                partners = cha.partners.map(partner => {
+                  return this.props.partners[cha.year].filter(p => p.id === partner.id)[0];
+                });
+              } else {
+                partners = [];
+              }
               return (
                 <div key={i}>
-                  <Row>
+                  <Row className={styles.challenge}>
                     <Col xs={3} className={styles.challenge_partner}>
-                      {cha && cha.partners && cha.partners.length > 0 && cha.partners[0].name}
+                      {partners.length > 0 && <a href={partners[0].url}>{partners[0].name}</a>}
                     </Col>
                     <Col xs={9}>
                       <div className={styles.challenge_title}>{challenge.title}</div>
@@ -88,12 +96,14 @@ class TrackElement extends Component {
 TrackElement.propTypes = {
   track: PropTypes.object,
   challenges: PropTypes.array,
+  partners: PropTypes.array,
   toggleTrack: PropTypes.func
 };
 
 function mapStateToProps(state) {
   return {
-    challenges: state.challenges || []
+    challenges: state.challenges || [],
+    partners: state.partners || []
   };
 }
 

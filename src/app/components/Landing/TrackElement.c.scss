@@ -99,8 +99,15 @@ $color3: white;
     border-bottom: 10px solid $accent;
   }
 }
+.challenge {
+  border-bottom: 2px solid $accent;
+}
 .challenge_partner {
   font-weight: 700;
+  a {
+    text-decoration: none;
+    color: black;
+  }
 }
 .challenge_title {
   font-weight: 700;
