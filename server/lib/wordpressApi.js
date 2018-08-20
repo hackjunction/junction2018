@@ -60,10 +60,15 @@ export const getChallenge = id => {
         image: challenge.acf.image,
         criteria: challenge.acf.criteria,
         prize: challenge.acf.prize,
-        partner: challenge.acf.partner,
+        partners:
+          challenge.acf.partner &&
+          challenge.acf.partner.map(partner => {
+            return { id: partner.ID, name: partner.post_title };
+          }),
         content: challenge.acf.content,
         challenge_bg: challenge.acf.challenge_bg,
-        challenge_type: challenge.acf.challenge_type
+        challenge_type: challenge.acf.challenge_type,
+        year: challenge.acf.year
       };
     })
     .catch(error => {
@@ -98,7 +103,8 @@ export const getChallenges = () => {
             }),
           content: challenge.acf.content,
           challenge_bg: challenge.acf.challenge_bg,
-          challenge_type: challenge.acf.challenge_type
+          challenge_type: challenge.acf.challenge_type,
+          year: challenge.acf.year
         };
       });
     });
