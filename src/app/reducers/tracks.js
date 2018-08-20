@@ -5,13 +5,13 @@ export default function tracks(state = [], action) {
     case 'TRACK_TOGGLE':
       console.log('reducer', action);
       state = state.map(track => {
+        var obj = Object.assign({}, track);
         if (track.slug !== action.slug) {
-          return Object.assign({}, track);
+          obj.open = false;
         } else {
-          var obj = Object.assign({}, track);
           obj.open = !obj.open;
-          return obj;
         }
+        return obj;
       });
       console.log('state:', state);
       return state;
