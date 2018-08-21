@@ -20,36 +20,15 @@ class Apply extends Component {
                 titleStyle={styles.title}
                 title="READY TO START YOUR JUNCTION JOURNEY?"
               >
-                {'Applications open August 20th! Get ready!'}
+                {
+                  'Applications for Junction 2018 are now open! Junction 2018 will gather over 1300 developers, designers and techies under one roof for an awesome weekend of creating. Want to experience a hackathon like no other? Get applying!'
+                }
               </BlockHeader>
-              <button
-                className={styles.apply_button}
-                onClick={() => {
-                  var mailchimpConfig = {
-                    baseUrl: 'mc.us15.list-manage.com',
-                    uuid: '6dd99fd74845dfb3f1307127a',
-                    lid: '292fbaaccd'
-                  };
-                  // No edits below this line are required
-                  var chimpPopup = document.createElement('script');
-                  chimpPopup.appendChild(
-                    document.createTextNode(
-                      'require(["mojo/signup-forms/Loader"], function (L) { L.start({"baseUrl": "' +
-                        mailchimpConfig.baseUrl +
-                        '", "uuid": "' +
-                        mailchimpConfig.uuid +
-                        '", "lid": "' +
-                        mailchimpConfig.lid +
-                        '"})});document.cookie = "MCPopupClosed=;path=/;expires=Thu, 01 Jan 1970 00:00:00 UTC;";'
-                    )
-                  );
-                  //alert(chimpPopup);
-
-                  document.body.appendChild(chimpPopup);
-                }}
-              >
-                {'STAY UP TO DATE'}
-              </button>
+              <div className={styles.appButton}>
+                <a className={styles.apply_button} href="https://apply.hackjunction.com/">
+                  {'APPLY NOW'}
+                </a>
+              </div>
             </Col>
             <Col
               xs={12}
