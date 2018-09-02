@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { Row, Col } from 'react-flexbox-grid';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -68,6 +69,7 @@ class TrackElement extends Component {
                     <Col xs={9}>
                       <div className={styles.challenge_title}>{challenge.title}</div>
                       <div className={styles.challenge_content} dangerouslySetInnerHTML={{ __html: cha.content }} />
+                      <Link to={'/challenges/' + cha.slug}>READ MORE</Link>
                     </Col>
                   </Row>
                 </div>

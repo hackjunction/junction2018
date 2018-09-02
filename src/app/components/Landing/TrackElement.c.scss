@@ -102,6 +102,9 @@ $color3: white;
 .challenge {
   border-bottom: 1px solid $accent;
   margin-bottom: 10px;
+  a {
+    color: $accent;
+  }
 }
 .challenge_partner {
   font-weight: 700;
