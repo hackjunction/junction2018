@@ -12,14 +12,13 @@ class Challenge extends Component {
 
   componentWillMount() {
     var match = this.props.match;
-    console.log('match:', match);
     if (!match.params || !match.params.challenge) return;
     var id = match.params.challenge;
 
     if (!this.props.challenges[id]) {
       this.props.getChallenge(id);
     }
-    if (!this.props.partners) {
+    if (!this.props.partners || Object.keys(this.props.partners).length === 0) {
       this.props.getPartners();
     }
   }
@@ -48,14 +47,13 @@ class Challenge extends Component {
     console.log('props partners, challenge partners', this.props.partners, challenge.partners);
     console.log(challenge);
     var partners;
-    if (challenge.partners && this.props.partners[challenge.year]) {
+    if (challenge.partners && this.props.partners && this.props.partners[challenge.year]) {
       console.log('we have partners');
       partners = challenge.partners.map(partner => {
         console.log(partner);
         return this.props.partners[challenge.year].filter(p => p.id === partner.id)[0];
       });
     } else {
-      console.log('no partners');
       partners = [];
     }
 
@@ -80,7 +78,7 @@ class Challenge extends Component {
               })}
             </div>
             <Col className={([styles.track_content], [styles.challenge_content])} xs={12} sm={12} md={12}>
-              <div dangerouslySetInnerHTML={{ __html: challenge.description }} />
+              <div dangerouslySetInnerHTML={{ __html: challenge.text }} />
             </Col>
           </Row>
         </Grid>
@@ -91,7 +89,7 @@ class Challenge extends Component {
 
 Challenge.propTypes = {
   challenges: PropTypes.array,
-  partners: PropTypes.array,
+  partners: PropTypes.object,
   getChallenge: PropTypes.func,
   getPartners: PropTypes.func,
   match: PropTypes.object
@@ -101,7 +99,7 @@ function mapStateToProps(state) {
   //console.log('challenges', state.challenges);
   return {
     challenges: state.challenges || [],
-    partners: state.partners || []
+    partners: state.partners || {}
   };
 }
 
