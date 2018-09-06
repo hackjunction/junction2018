@@ -17,6 +17,7 @@ const Hero = () => (
           </div>
           <br />
         </Col>
+        <Col className={styles.date}>23.-25.11.2018</Col>
       </Row>
     </Block>
   </Scroll.Element>
