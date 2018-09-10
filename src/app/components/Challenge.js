@@ -66,7 +66,9 @@ class Challenge extends Component {
 
           <Row center="xs" className={styles.track_header}>
             <Col className={styles.track_name} xs={12} sm={12} md={12}>
-              <h1>{challenge.title}</h1>
+              <h1>
+                <div dangerouslySetInnerHTML={{ __html: challenge.title }} />
+              </h1>
             </Col>
             <div>
               {partners.map(partner => {

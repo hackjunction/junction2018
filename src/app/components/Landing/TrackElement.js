@@ -67,7 +67,7 @@ class TrackElement extends Component {
                       {partners.length > 0 && <a href={partners[0].url}>{partners[0].name}</a>}
                     </Col>
                     <Col xs={9}>
-                      <div className={styles.challenge_title}>{challenge.title}</div>
+                      <div className={styles.challenge_title} dangerouslySetInnerHTML={{ __html: challenge.title }} />
                       <div className={styles.challenge_content} dangerouslySetInnerHTML={{ __html: cha.content }} />
                       <Link to={'/challenges/' + cha.slug}>READ MORE</Link>
                     </Col>
