@@ -25,7 +25,6 @@ class Challenge extends Component {
 
   render() {
     var match = this.props.match;
-    console.log('match:', match);
     if (!match.params || !match.params.challenge) return <Redirect to="/" />;
     if (this.props.challenges.length > 0) {
       var challenge = this.props.challenges.filter(
@@ -44,13 +43,9 @@ class Challenge extends Component {
       backgroundSize: 'cover'
     };
 
-    console.log('props partners, challenge partners', this.props.partners, challenge.partners);
-    console.log(challenge);
     var partners;
     if (challenge.partners && this.props.partners && this.props.partners[challenge.year]) {
-      console.log('we have partners');
       partners = challenge.partners.map(partner => {
-        console.log(partner);
         return this.props.partners[challenge.year].filter(p => p.id === partner.id)[0];
       });
     } else {
@@ -98,7 +93,6 @@ Challenge.propTypes = {
 };
 
 function mapStateToProps(state) {
-  //console.log('challenges', state.challenges);
   return {
     challenges: state.challenges || [],
     partners: state.partners || {}
