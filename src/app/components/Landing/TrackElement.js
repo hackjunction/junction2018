@@ -11,6 +11,7 @@ import styles from './TrackElement.c.scss';
 class TrackElement extends Component {
   render() {
     var track = this.props.track;
+    console.log(track);
     var toggle = function() {
       this.props.toggleTrack(track.slug);
       setTimeout(() => {
@@ -76,6 +77,9 @@ class TrackElement extends Component {
               );
             })}
           </Col>
+        </Row>
+        <Row className={styles.link} center="xs" onClick={toggle}>
+          <Link to={'/tracks/' + track.slug}>READ MORE</Link>
         </Row>
         <Row center="xs" onClick={toggle} className={styles.arrow}>
           <div className="fa fa-chevron-up" />

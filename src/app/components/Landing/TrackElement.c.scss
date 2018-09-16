@@ -101,7 +101,7 @@ $color3: white;
 }
 .challenge {
   border-bottom: 1px solid $accent;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   a {
     color: $accent;
   }
@@ -138,6 +138,13 @@ $color3: white;
 .arrow:hover {
   color: #fbfbfb;
   text-shadow: 0px 0px 5px $accent;
+}
+.link {
+  a {
+    color: $accent;
+    font-size: 1.5em;
+    font-weight: 600;
+  }
 }
 
 .inside {

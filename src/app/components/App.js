@@ -3,8 +3,8 @@ import { Route, Switch } from 'react-router-dom';
 import { Row, Col } from 'react-flexbox-grid';
 import CookieConsent from 'react-cookie-consent';
 import Landing from './Landing';
-import Challenges from './Challenges';
 import Challenge from './Challenge';
+import Track from './Track';
 import AllPartners from './Partners';
 import NotFound from './NotFound';
 //import MobileNav from './MobileNav';
@@ -56,7 +56,7 @@ class App extends React.Component {
             <Switch>
               <Route exact path="/" component={Landing} />
               <Route path="/challenges/:challenge" component={Challenge} />
-              <Route path="/challenges" component={Challenges} />
+              <Route path="/tracks/:track" component={Track} />
               <Route path="/partners" component={AllPartners} />
               <Route path="/404" component={NotFound} />
               <Route component={NotFound} />

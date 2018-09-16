@@ -3,7 +3,6 @@ import ApiPosts from '../api/posts';
 
 // get all the post from wordpress
 export function* getPartners(action) {
-  console.log(action);
   const partners = yield call(ApiPosts.getPartners, action.year);
   // save the challenges in state
   yield put({
@@ -11,5 +10,4 @@ export function* getPartners(action) {
     partners: partners.data,
     year: action.year
   });
-  console.log('put');
 }
