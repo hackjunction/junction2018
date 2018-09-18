@@ -51,6 +51,7 @@ class Challenge extends Component {
     } else {
       partners = [];
     }
+    var partnerSize = partners.length === 1 ? 12 : 6;
 
     return (
       <div className={styles.track_page}>
@@ -68,7 +69,7 @@ class Challenge extends Component {
             <div>
               {partners.map(partner => {
                 return (
-                  <Col className={styles.challenge_partner_inline} xs={12} sm={12} md={12}>
+                  <Col className={styles.challenge_partner_inline} xs={partnerSize} sm={partnerSize} md={partnerSize}>
                     <img src={partner.logo} alt="" />
                   </Col>
                 );
