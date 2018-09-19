@@ -3,8 +3,8 @@ import { Row, Col } from 'react-flexbox-grid';
 import PropTypes from 'prop-types';
 import styles from './BlockHeader.c.scss';
 
-const BlockHeader = ({ title, children: description }) => (
-  <Row>
+const BlockHeader = ({ title, children: description, centered }) => (
+  <Row center={centered ? 'xs' : ''}>
     <Col xs={12} md={5}>
       <h1 className={styles.title}>{title}</h1>
     </Col>
@@ -18,7 +18,8 @@ const BlockHeader = ({ title, children: description }) => (
 
 BlockHeader.propTypes = {
   title: PropTypes.string,
-  children: PropTypes.object
+  children: PropTypes.object,
+  centered: PropTypes.bool
 };
 
 export default BlockHeader;
