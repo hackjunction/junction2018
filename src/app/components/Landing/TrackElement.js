@@ -11,7 +11,6 @@ import styles from './TrackElement.c.scss';
 class TrackElement extends Component {
   render() {
     var track = this.props.track;
-    console.log(track);
     var toggle = function() {
       this.props.toggleTrack(track.slug);
       setTimeout(() => {
@@ -50,32 +49,69 @@ class TrackElement extends Component {
                 </Col>
               </Row>
             ) : null}
-            {track.challenges.map((challenge, i) => {
-              var cha = this.props.challenges.filter(cha => cha.id === challenge.id);
-              cha = cha.length > 0 && cha[0];
-              var partners;
-              if (cha.partners && this.props.partners[cha.year]) {
-                partners = cha.partners.map(partner => {
-                  return this.props.partners[cha.year].filter(p => p.id === partner.id)[0];
-                });
-              } else {
-                partners = [];
-              }
-              return (
-                <div key={i}>
-                  <Row className={styles.challenge}>
-                    <Col xs={12} md={3} className={styles.challenge_partner}>
-                      {partners.length > 0 && <a href={partners[0].url}>{partners[0].name}</a>}
-                    </Col>
-                    <Col xs={12} md={9}>
-                      <div className={styles.challenge_title} dangerouslySetInnerHTML={{ __html: challenge.title }} />
-                      <div className={styles.challenge_content} dangerouslySetInnerHTML={{ __html: cha.content }} />
-                      <Link to={'/challenges/' + cha.slug}>READ MORE</Link>
-                    </Col>
-                  </Row>
-                </div>
-              );
-            })}
+            {track.challenges &&
+              track.challenges.map((challenge, i) => {
+                var cha = this.props.challenges.filter(cha => cha.id === challenge.id);
+                cha = cha.length > 0 && cha[0];
+                var partners;
+                if (cha.partners && this.props.partners[cha.year]) {
+                  partners = cha.partners.map(partner => {
+                    return this.props.partners[cha.year].filter(p => p.id === partner.id)[0];
+                  });
+                } else {
+                  partners = [];
+                }
+                return (
+                  <div key={i}>
+                    <Row className={styles.challenge}>
+                      <Col xs={12} md={3} className={styles.challenge_partner}>
+                        {partners.length > 0 && <a href={partners[0].url}>{partners[0].name}</a>}
+                      </Col>
+                      <Col xs={12} md={9}>
+                        <div className={styles.challenge_title} dangerouslySetInnerHTML={{ __html: challenge.title }} />
+                        <div className={styles.challenge_content} dangerouslySetInnerHTML={{ __html: cha.content }} />
+                        <Link to={'/challenges/' + cha.slug}>READ MORE</Link>
+                      </Col>
+                    </Row>
+                  </div>
+                );
+              })}
+          </Col>
+          <Col xs={12}>
+            {track.mentors && track.mentors.length ? (
+              <Row>
+                <Col xs={8} md={2}>
+                  <h3>Mentors</h3>
+                </Col>
+              </Row>
+            ) : null}
+            {track.mentors &&
+              track.mentors.map((mentor, i) => {
+                var ment = this.props.mentors.filter(ment => ment.id === mentor.id);
+                ment = ment.length > 0 && ment[0];
+                var partners;
+                if (ment.partners && this.props.partners[ment.year]) {
+                  partners = ment.partners.map(partner => {
+                    return this.props.partners[ment.year].filter(p => p.id === partner.id)[0];
+                  });
+                } else {
+                  partners = [];
+                }
+                return (
+                  <div key={i}>
+                    <Row className={styles.challenge}>
+                      <Col xs={12} md={3} className={styles.challenge_partner}>
+                        {partners.length > 0 && <a href={partners[0].url}>{partners[0].name}</a>}
+                      </Col>
+                      <Col xs={12} md={9}>
+                        <div className={styles.challenge_title} dangerouslySetInnerHTML={{ __html: mentor.title }} />
+                        <div className={styles.challenge_content} dangerouslySetInnerHTML={{ __html: ment.content }} />
+                        <Link to={'/mentors/' + ment.slug}>READ MORE</Link>
+                      </Col>
+                    </Row>
+                  </div>
+                );
+              })}
           </Col>
         </Row>
         <Row className={styles.link} center="xs" onClick={toggle}>
@@ -102,6 +138,7 @@ class TrackElement extends Component {
 TrackElement.propTypes = {
   track: PropTypes.object,
   challenges: PropTypes.array,
+  mentors: PropTypes.array,
   partners: PropTypes.array,
   toggleTrack: PropTypes.func
 };
@@ -109,6 +146,7 @@ TrackElement.propTypes = {
 function mapStateToProps(state) {
   return {
     challenges: state.challenges || [],
+    mentors: state.mentors || [],
     partners: state.partners || []
   };
 }
@@ -116,7 +154,6 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     toggleTrack(slug) {
-      console.log('dispatched');
       dispatch({ type: 'TRACK_TOGGLE', slug });
     },
     dispatch

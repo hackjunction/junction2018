@@ -33,6 +33,15 @@ export const getTracks = () => {
                 };
               })
             : [],
+          mentors: track.acf.mentors
+            ? track.acf.mentors.map(mentor => {
+                return {
+                  title: mentor.post_title,
+                  content: mentor.post_content,
+                  id: mentor.ID
+                };
+              })
+            : [],
           main_partners: track.main_partners,
           partners: track.partners,
           slug: track.slug
@@ -109,6 +118,55 @@ export const getChallenges = () => {
           year: challenge.acf.year
         };
       });
+    });
+};
+
+var mapMentor = mentor => {
+  return {
+    id: mentor.id,
+    slug: mentor.slug,
+    title: mentor.title.rendered,
+    text: mentor.content.rendered,
+    content: mentor.acf.content,
+    partners:
+      mentor.acf.partners &&
+      mentor.acf.partners.map(partner => {
+        return { id: partner.ID, name: partner.post_title };
+      }),
+    mentor_bg: mentor.acf.mentor_bg,
+    year: mentor.acf.year
+  };
+};
+export const getMentor = id => {
+  return wordpressApiClient
+    .get('/posts' + (isNaN(id) ? '?slug=' : '/') + id)
+    .then(mentor => (isNaN(id) ? mentor.data[0] : mentor.data))
+    .then(mentor => {
+      if (mentor.status === 404) {
+        return {
+          id,
+          status: 404
+        };
+      }
+      return mapMentor(mentor);
+    })
+    .catch(error => {
+      console.log('error:', error);
+      if (error.response && error.response.status === 404) {
+        return {
+          id,
+          status: 404
+        };
+      }
+    });
+};
+
+export const getMentors = () => {
+  return wordpressApiClient
+    .get('/posts?_embed&categories=10&per_page=100')
+    .then(mentors => mentors.data)
+    .then(mentors => {
+      return mentors.map(mapMentor);
     });
 };
 

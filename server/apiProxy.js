@@ -36,6 +36,19 @@ apiRouter.get('/challenges', (req, res) => {
     res.json(data);
   });
 });
+
+apiRouter.get('/mentor', (req, res) => {
+  wordpressApi.getMentor(req.query.id).then(data => {
+    res.json(data);
+  });
+});
+
+apiRouter.get('/mentors', (req, res) => {
+  wordpressApi.getMentors().then(data => {
+    res.json(data);
+  });
+});
+
 apiRouter.get('/calendarEvents', (req, res) => {
   wordpressApi.getCalendarEvents().then(data => {
     res.json(data);

@@ -2,6 +2,7 @@ import { takeLatest, takeEvery } from 'redux-saga';
 import { fork } from 'redux-saga/effects';
 import { getAllPost, getMediumPosts } from './posts';
 import { getAllChallenges, getChallenge } from './challenges';
+import { getAllMentors, getMentor } from './mentors';
 import { getAllTracks } from './tracks';
 import { getCalendarEvents } from './calendarEvents';
 import { getEvents } from './events';
@@ -15,6 +16,8 @@ export default function* sagas() {
   yield [fork(takeLatest, 'GET_MEDIUM_POSTS', getMediumPosts)];
   yield [fork(takeEvery, 'GET_CHALLENGES', getAllChallenges)];
   yield [fork(takeEvery, 'GET_CHALLENGE', getChallenge)];
+  yield [fork(takeEvery, 'GET_MENTORS', getAllMentors)];
+  yield [fork(takeEvery, 'GET_MENTOR', getMentor)];
   yield [fork(takeEvery, 'GET_CALENDAREVENTS', getCalendarEvents)];
   yield [fork(takeLatest, 'GET_TRACKS', getAllTracks)];
   yield [fork(takeLatest, 'GET_EVENTS', getEvents)];

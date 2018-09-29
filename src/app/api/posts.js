@@ -33,6 +33,13 @@ export default class ApiPosts {
     return api.get('/challenge?id=' + id);
   }
 
+  static getMentors() {
+    return api.get('/mentors');
+  }
+  static getMentor(id) {
+    return api.get('/mentor?id=' + id);
+  }
+
   static getJobs() {
     return api.get('/jobs');
   }

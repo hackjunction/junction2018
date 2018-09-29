@@ -49,7 +49,6 @@ class ChallengeElement extends Component {
             <div className={styles.left} dangerouslySetInnerHTML={{ __html: data.content }} />
           </Col>
         </Row>
-
         <Row className={styles.fullwidth}>
           <hr className={styles.fullwidth} />
         </Row>

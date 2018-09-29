@@ -16,6 +16,9 @@ class Tracks extends Component {
     if (!this.props.tracks || this.props.tracks.length === 0) {
       this.props.dispatch({ type: 'GET_TRACKS' });
     }
+    if (!this.props.mentors || this.props.mentors.length === 0) {
+      this.props.dispatch({ type: 'GET_MENTORS' });
+    }
     if (!this.props.challenges || this.props.challenges.length === 0) {
       this.props.dispatch({ type: 'GET_CHALLENGES' });
     }
@@ -48,6 +51,7 @@ Tracks.propTypes = {
   tracks: PropTypes.array,
   partners: PropTypes.array,
   challenges: PropTypes.array,
+  mentors: PropTypes.array,
   year: PropTypes.number
 };
 
