@@ -50,32 +50,53 @@ class TrackElement extends Component {
               </Row>
             ) : null}
             {track.challenges &&
-              track.challenges.map((challenge, i) => {
-                var cha = this.props.challenges.filter(cha => cha.id === challenge.id);
-                cha = cha.length > 0 && cha[0];
-                var partners;
-                if (cha.partners && this.props.partners[cha.year]) {
-                  partners = cha.partners.map(partner => {
-                    return this.props.partners[cha.year].filter(p => p.id === partner.id)[0];
-                  });
-                } else {
-                  partners = [];
-                }
-                return (
-                  <div key={i}>
-                    <Row className={styles.challenge}>
-                      <Col xs={12} md={3} className={styles.challenge_partner}>
-                        {partners.length > 0 && <a href={partners[0].url}>{partners[0].name}</a>}
-                      </Col>
-                      <Col xs={12} md={9}>
-                        <div className={styles.challenge_title} dangerouslySetInnerHTML={{ __html: challenge.title }} />
-                        <div className={styles.challenge_content} dangerouslySetInnerHTML={{ __html: cha.content }} />
-                        <Link to={'/challenges/' + cha.slug}>READ MORE</Link>
-                      </Col>
-                    </Row>
-                  </div>
-                );
-              })}
+              track.challenges
+                .sort((challenge1, challenge2) => {
+                  function getPartner(challenge, props) {
+                    var cha = props.challenges.filter(cha => cha.id === challenge.id);
+                    cha = cha.length > 0 && cha[0];
+                    var partners;
+                    if (cha.partners && props.partners[cha.year]) {
+                      partners = cha.partners.map(partner => {
+                        return props.partners[cha.year].filter(p => p.id === partner.id)[0];
+                      });
+                      console.log(partners[0].name);
+                      return partners[0].name;
+                    } else {
+                      return null;
+                    }
+                  }
+                  return getPartner(challenge1, this.props) > getPartner(challenge2, this.props);
+                })
+                .map((challenge, i) => {
+                  var cha = this.props.challenges.filter(cha => cha.id === challenge.id);
+                  cha = cha.length > 0 && cha[0];
+                  var partners;
+                  if (cha.partners && this.props.partners[cha.year]) {
+                    partners = cha.partners.map(partner => {
+                      return this.props.partners[cha.year].filter(p => p.id === partner.id)[0];
+                    });
+                  } else {
+                    partners = [];
+                  }
+                  return (
+                    <div key={i}>
+                      <Row className={styles.challenge}>
+                        <Col xs={12} md={3} className={styles.challenge_partner}>
+                          {partners.length > 0 && <a href={partners[0].url}>{partners[0].name}</a>}
+                        </Col>
+                        <Col xs={12} md={9}>
+                          <div
+                            className={styles.challenge_title}
+                            dangerouslySetInnerHTML={{ __html: challenge.title }}
+                          />
+                          <div className={styles.challenge_content} dangerouslySetInnerHTML={{ __html: cha.content }} />
+                          <Link to={'/challenges/' + cha.slug}>READ MORE</Link>
+                        </Col>
+                      </Row>
+                    </div>
+                  );
+                })}
           </Col>
           <Col xs={12}>
             {track.mentors && track.mentors.length ? (
