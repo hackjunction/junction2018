@@ -66,17 +66,15 @@ class Challenge extends Component {
                 <div dangerouslySetInnerHTML={{ __html: challenge.title }} />
               </h1>
             </Col>
-            <div>
-              {partners.map(partner => {
-                return (
-                  <Col className={styles.challenge_partner_inline} xs={partnerSize} sm={partnerSize} md={partnerSize}>
-                    <a href={partner.url}>
-                      <img src={partner.logo} alt="" />
-                    </a>
-                  </Col>
-                );
-              })}
-            </div>
+            {partners.map(partner => {
+              return (
+                <Col className={styles.challenge_partner_inline} xs={partnerSize} sm={partnerSize} md={partnerSize}>
+                  <a href={partner.url}>
+                    <img src={partner.logo} alt="" />
+                  </a>
+                </Col>
+              );
+            })}
             <Col className={([styles.track_content], [styles.challenge_content])} xs={12} sm={12} md={12}>
               <div dangerouslySetInnerHTML={{ __html: challenge.text }} />
             </Col>
