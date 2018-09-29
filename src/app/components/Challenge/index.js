@@ -70,7 +70,9 @@ class Challenge extends Component {
               {partners.map(partner => {
                 return (
                   <Col className={styles.challenge_partner_inline} xs={partnerSize} sm={partnerSize} md={partnerSize}>
-                    <img src={partner.logo} alt="" />
+                    <a href={partner.url}>
+                      <img src={partner.logo} alt="" />
+                    </a>
                   </Col>
                 );
               })}
