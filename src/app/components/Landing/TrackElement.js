@@ -80,21 +80,16 @@ class TrackElement extends Component {
                     partners = [];
                   }
                   return (
-                    <div key={i}>
-                      <Row className={styles.challenge}>
-                        <Col xs={12} md={3} className={styles.challenge_partner}>
-                          {partners.length > 0 && <a href={partners[0].url}>{partners[0].name}</a>}
-                        </Col>
-                        <Col xs={12} md={9}>
-                          <div
-                            className={styles.challenge_title}
-                            dangerouslySetInnerHTML={{ __html: challenge.title }}
-                          />
-                          <div className={styles.challenge_content} dangerouslySetInnerHTML={{ __html: cha.content }} />
-                          <Link to={'/challenges/' + cha.slug}>READ MORE</Link>
-                        </Col>
-                      </Row>
-                    </div>
+                    <Row key={i} className={styles.challenge}>
+                      <Col xs={12} md={3} className={styles.challenge_partner}>
+                        {partners.length > 0 && <a href={partners[0].url}>{partners[0].name}</a>}
+                      </Col>
+                      <Col xs={12} md={9}>
+                        <div className={styles.challenge_title} dangerouslySetInnerHTML={{ __html: challenge.title }} />
+                        <div className={styles.challenge_content} dangerouslySetInnerHTML={{ __html: cha.content }} />
+                        <Link to={'/challenges/' + cha.slug}>READ MORE</Link>
+                      </Col>
+                    </Row>
                   );
                 })}
           </Col>

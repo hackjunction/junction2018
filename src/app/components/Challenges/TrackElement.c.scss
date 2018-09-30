@@ -81,6 +81,8 @@ $color3: white;
   }
   text-align: left;
   border-bottom: 10px solid black;
+  margin-left: inherit;
+  margin-right: inherit;
   margin-top: 0px;
   margin-bottom: 20px;
   font-family: "Montserrat", sans-serif;
@@ -107,6 +109,10 @@ $color3: white;
     color: $accent;
     font-weight: bold;
   }
+}
+.logo {
+  max-width: 100px;
+  height: auto;
 }
 .challenge_partner {
   font-weight: 700;
@@ -141,11 +147,14 @@ $color3: white;
   color: #fbfbfb;
   text-shadow: 0px 0px 5px $accent;
 }
-.link {
+.bottom {
+  background: $accent;
   a {
-    color: $accent;
+    color: black;
     font-size: 1.5em;
     font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 }
 
