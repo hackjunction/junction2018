@@ -57,8 +57,8 @@ class App extends React.Component {
           <div>
             <Switch>
               <Route exact path="/" component={Landing} />
-              <Route path="/challenges/" component={Challenges} />
               <Route path="/challenges/:challenge" component={Challenge} />
+              <Route path="/challenges/" component={Challenges} />
               <Route path="/mentors/:mentor" component={Mentor} />
               <Route path="/tracks/:track" component={Track} />
               <Route path="/partners" component={AllPartners} />
