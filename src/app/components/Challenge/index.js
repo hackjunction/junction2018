@@ -75,7 +75,7 @@ class Challenge extends Component {
                 </Col>
               );
             })}
-            <Col className={([styles.track_content], [styles.challenge_content])} xs={12} sm={12} md={12}>
+            <Col className={[styles.track_content, styles.challenge_content].join(' ')} xs={12} sm={12} md={12}>
               <div dangerouslySetInnerHTML={{ __html: challenge.text }} />
             </Col>
           </Row>
