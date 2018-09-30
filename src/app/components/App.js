@@ -4,7 +4,6 @@ import { Row, Col } from 'react-flexbox-grid';
 import CookieConsent from 'react-cookie-consent';
 import Landing from './Landing';
 import Challenge from './Challenge';
-import Challenges from './Challenges';
 import Mentor from './Mentor';
 import Track from './Track';
 import AllPartners from './Partners';
@@ -58,7 +57,6 @@ class App extends React.Component {
             <Switch>
               <Route exact path="/" component={Landing} />
               <Route path="/challenges/:challenge" component={Challenge} />
-              <Route path="/challenges/" component={Challenges} />
               <Route path="/mentors/:mentor" component={Mentor} />
               <Route path="/tracks/:track" component={Track} />
               <Route path="/partners" component={AllPartners} />
