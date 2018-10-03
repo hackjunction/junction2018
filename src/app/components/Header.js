@@ -1,5 +1,6 @@
 import React from 'react';
 //import { Row, Col } from 'react-flexbox-grid';
+import { Link } from 'react-router-dom';
 import Headroom from 'react-headroom';
 import Media from 'react-media';
 import styles from './Header.c.scss';
@@ -15,38 +16,43 @@ const Header = () => (
             alt="Logo"
           />
         </a>
-        <a href="https://apply.hackjunction.com" className={styles.applyLink}>
-          <div className={styles.apply}>
-            <h2 className={styles.apply2}>APPLY</h2>
-          </div>
-        </a>
-        {/*<Media query="(min-width: 901px)">
+
+        <Media query="(min-width: 901px)">
           <nav className={styles.site_nav}>
             <ul>
               <li>
                 <Link to="/">HOME</Link>
               </li>
               <li>
-                <Link to="/team">CHALLENGES</Link>
+                <Link to="/challenges">CHALLENGES</Link>
               </li>
               <li>
-                <Link to="/2017">PARTNERS</Link>
+                <Link to="/partners">PARTNERS</Link>
               </li>
             </ul>
           </nav>
-        </Media>*/}
-        <Media query="(max-width: 900px)">
-          <span onClick={window.openNavigationMenu}>MENU</span>
         </Media>
-        {/*}<a
+        <Media query="(min-width: 901px)">
+          <a
             className={styles.mlh}
-            href="https://mlh.io/seasons/eu-2018/events?utm_source=na-2018&utm_medium=TrustBadge&utm_campaign=na-2018&utm_content=gray"
+            href="https://mlh.io/seasons/eu-2019/events?utm_source=eu-hackathon&utm_medium=TrustBadge&utm_campaign=2019-season&utm_content=gray"
           >
             <img
-              src="https://s3.amazonaws.com/logged-assets/trust-badge/2018/gray.svg"
+              src="https://s3.amazonaws.com/logged-assets/trust-badge/2019/mlh-trust-badge-2019-gray.svg"
               alt="Major League Hacking 2017 Hackathon Season"
             />
-          </a>*/}
+          </a>
+        </Media>
+        <a href="https://apply.hackjunction.com" className={styles.applyLink}>
+          <div className={styles.apply}>
+            <h2 className={styles.apply2}>APPLY</h2>
+          </div>
+        </a>
+        <Media query="(max-width: 900px)">
+          <span className={styles.site_nav} onClick={window.openNavigationMenu}>
+            <span>MENU</span>
+          </span>
+        </Media>
       </header>
     </div>
   </Headroom>

@@ -30,23 +30,18 @@ class MobileNav extends React.Component {
           right
           onStateChange={this.menuStateChanged}
           isOpen={this.state.isMenuOpen}
+          className={styles.site_nav}
         >
           <nav className={styles.site_nav}>
             <ul center="xs">
               <li>
-                <Link to="/">HOME</Link>
+                <Link to="/challenges">CHALLENGES</Link>
               </li>
               <li>
-                <Link to="/team">TEAM</Link>
+                <Link to="/partners">PARTNERS</Link>
               </li>
               <li>
-                <Link to="/2017">JUNCTION&nbsp;2017</Link>
-              </li>
-              <li>
-                <Link to="/junctionx">JUNCTIONX</Link>
-              </li>
-              <li>
-                <Link to="/jobs">JOBS</Link>
+                <a href="https://apply.hackjunction.com">APPLY</a>
               </li>
             </ul>
           </nav>

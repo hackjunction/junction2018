@@ -1,3 +1,5 @@
+@import '../stylesheets/variables';
+
 .header,
 .site_nav ul {
   display: flex;
@@ -55,7 +57,7 @@
     width: 50%;
   }
 
-  a {
+  a, span {
     display: block;
     padding: 0.7em;
     text-align: center;
@@ -63,10 +65,10 @@
     font-size: 1.2em;
     transition: background-color 0.3s, color 0.3s;
     &:hover {
-      color: #35e2df !important;
+      color: $accent !important;
     }
     &:active {
-      color: #35e2df !important;
+      color: $accent !important;
       text-decoration: none;
     }
   }
@@ -117,5 +119,21 @@
   }
   .apply {
     margin-right: 20px;
+  }
+}
+.mlh {
+  @media only screen and (min-width: 320px) and (max-width: 480px) {
+    display: none;
+  }
+  z-index: 10;
+  display: block;
+  max-width: 100px;
+  min-width: 60px;
+  position: absolute;
+  right: 30px;
+  top: 0;
+  width: 10%;
+  img {
+    width: 100%;
   }
 }
