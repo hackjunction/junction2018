@@ -32,6 +32,11 @@ const Header = () => (
             </ul>
           </nav>
         </Media>
+        <a href="https://apply.hackjunction.com" className={styles.applyLink}>
+          <div className={styles.apply}>
+            <h2 className={styles.apply2}>APPLY</h2>
+          </div>
+        </a>
         <Media query="(min-width: 901px)">
           <a
             className={styles.mlh}
@@ -43,11 +48,6 @@ const Header = () => (
             />
           </a>
         </Media>
-        <a href="https://apply.hackjunction.com" className={styles.applyLink}>
-          <div className={styles.apply}>
-            <h2 className={styles.apply2}>APPLY</h2>
-          </div>
-        </a>
         <Media query="(max-width: 900px)">
           <span className={styles.site_nav} onClick={window.openNavigationMenu}>
             <span>MENU</span>
