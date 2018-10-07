@@ -1,3 +1,5 @@
+@import '../../stylesheets/variables';
+
 .block {
   background-color: black;
   color: white;
@@ -5,4 +7,41 @@
 .date {
   font-size: 2em;
   font-weight: 800;
+}
+
+.pic {
+  max-width: 55%;
+  margin: auto;
+}
+
+.cont {
+  margin: auto;
+  margin-top: 15%;
+}
+
+.head {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+}
+
+.parag {
+  font-family: "Montserrat", sans-serif;
+  //font-weight: 900;
+}
+
+.btn {
+  font-family: "Montserrat", sans-serif;
+  max-width: 30%;
+  //sfont-weight: 900;
+  border: 3px solid;
+  border-color: $accent;
+  margin: auto;
+  margin-top: 50px;
+  padding: 10px;
+}
+
+.btn1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+  color: $accent;
 }
