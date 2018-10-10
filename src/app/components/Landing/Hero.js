@@ -22,11 +22,13 @@ const Hero = () => (
             <div className={styles.cont}>
               <h1 className={styles.head}>JUNCTION 2018</h1>
               <div className={styles.parag}>
+                23. - 25.11. | Dipoli - Espoo<br />
+                <br />
                 Applications for Junction 2018 are closed! <br />
                 Junction 2018 will gather over 1300 developers, designers and techies under one roof for an awesome
                 weekend of creating. <br />
                 <br />
-                Stay posted for further updates! <br />
+                Stay tuned for further updates! <br />
               </div>
             </div>
           </div>
