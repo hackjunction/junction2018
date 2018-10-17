@@ -42,6 +42,7 @@ export const getTracks = () => {
                 };
               })
             : [],
+          mentor_label: track.acf.mentor_label,
           main_partners: track.main_partners,
           partners: track.partners,
           slug: track.slug

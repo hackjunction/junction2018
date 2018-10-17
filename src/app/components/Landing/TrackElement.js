@@ -60,7 +60,6 @@ class TrackElement extends Component {
                       partners = cha.partners.map(partner => {
                         return props.partners[cha.year].filter(p => p.id === partner.id)[0];
                       });
-                      console.log(partners[0].name);
                       return partners[0].name;
                     } else {
                       return null;
@@ -101,7 +100,7 @@ class TrackElement extends Component {
             {track.mentors && track.mentors.length ? (
               <Row>
                 <Col xs={8} md={2}>
-                  <h3>Mentors</h3>
+                  <h3>{track.mentor_label || 'Mentors'}</h3>
                 </Col>
               </Row>
             ) : null}
@@ -121,7 +120,11 @@ class TrackElement extends Component {
                   <div key={i}>
                     <Row className={styles.challenge}>
                       <Col xs={12} md={3} className={styles.challenge_partner}>
-                        {partners.length > 0 && <a href={partners[0].url}>{partners[0].name}</a>}
+                        {partners.length > 0 && (
+                          <a href={partners[0].url}>
+                            <img className={styles.logo} alt={partners[0].name} src={partners[0].logo} />
+                          </a>
+                        )}
                       </Col>
                       <Col xs={12} md={9}>
                         <div className={styles.challenge_title} dangerouslySetInnerHTML={{ __html: mentor.title }} />
