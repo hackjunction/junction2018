@@ -15,6 +15,12 @@ class Track extends Component {
     if (this.props.tracks.length == 0) {
       this.props.getTracks();
     }
+    if (!this.props.mentors || this.props.mentors.length === 0) {
+      this.props.dispatch({ type: 'GET_MENTORS' });
+    }
+    if (!this.props.partners || !this.props.partners[2018]) {
+      this.props.dispatch({ type: 'GET_PARTNERS', year: 2018 });
+    }
   }
 
   render() {
@@ -25,7 +31,6 @@ class Track extends Component {
       if (track.length === 0) return <Redirect to="/404" />;
       else track = track[0];
     } else track = {};
-    console.log(track);
 
     var style = {
       backgroundImage: `url(${track.image})`,
@@ -46,7 +51,43 @@ class Track extends Component {
             <Col className={styles.track_content} xs={12} sm={12} md={12}>
               <div dangerouslySetInnerHTML={{ __html: track.description }} />
             </Col>
-
+            {track.mentors && track.mentors.length ? (
+              <Col xs={12} md={12}>
+                <h3>{track.mentor_label || 'Mentors'}</h3>
+              </Col>
+            ) : null}
+            {track.mentors &&
+              track.mentors.map((mentor, i) => {
+                var ment = this.props.mentors.filter(ment => ment.id === mentor.id);
+                ment = ment.length > 0 && ment[0];
+                var partners;
+                if (ment.partners && this.props.partners[ment.year]) {
+                  partners = ment.partners.map(partner => {
+                    return this.props.partners[ment.year].filter(p => p.id === partner.id)[0];
+                  });
+                } else {
+                  partners = [];
+                }
+                var partnerSize = partners.length === 1 ? 12 : 6;
+                return (
+                  <div key={i}>
+                    {partners.map(partner => {
+                      return (
+                        <Col
+                          className={styles.challenge_partner_inline}
+                          xs={partnerSize}
+                          sm={partnerSize}
+                          md={partnerSize}
+                        >
+                          <a href={partner.url}>
+                            <img src={partner.logo} alt="" />
+                          </a>
+                        </Col>
+                      );
+                    })}
+                  </div>
+                );
+              })}
             <TrackChallenges track={track} />
           </Row>
         </Grid>
@@ -58,14 +99,19 @@ class Track extends Component {
 Track.propTypes = {
   tracks: PropTypes.array,
   getTracks: PropTypes.func,
-  match: PropTypes.object
+  mentors: PropTypes.array,
+  partners: PropTypes.array,
+  match: PropTypes.object,
+  dispatch: PropTypes.func
 };
 
 function mapStateToProps(state) {
   //console.log('tracks', state.tracks);
   return {
     tracks: state.tracks || [],
-    challenges: state.challenges
+    challenges: state.challenges,
+    mentors: state.mentors || [],
+    partners: state.partners || []
   };
 }
 
@@ -73,7 +119,8 @@ function mapDispatchToProps(dispatch) {
   return {
     getTracks() {
       dispatch({ type: 'GET_TRACKS' });
-    }
+    },
+    dispatch
   };
 }
 
