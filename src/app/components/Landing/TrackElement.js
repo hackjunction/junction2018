@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { Row, Col } from 'react-flexbox-grid';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { scroller, Element as ScrollElement } from 'react-scroll';
+import Link from '../common/CustomLink';
 import styles from './TrackElement.c.scss';
 
 // import Challenge from './challenges/Challenge';

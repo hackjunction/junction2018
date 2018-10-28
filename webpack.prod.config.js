@@ -1,31 +1,34 @@
-var webpack = require("webpack");
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-module.exports = require("./webpack.config.js"); // inherit from the main config file
+var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+module.exports = require('./webpack.config.js'); // inherit from the main config file
 
 // production env
-module.exports.plugins.push(
+module.exports[0].plugins.push(
   new webpack.DefinePlugin({
-    "process.env": {
-      NODE_ENV: JSON.stringify("production")
+    'process.env': {
+      NODE_ENV: JSON.stringify('production')
     }
   })
 );
 
 //FROM DEV
-module.exports.module.loaders[1] = {
+module.exports[0].module.loaders[1] = {
   test: /\.scss$/,
   loader: ExtractTextPlugin.extract({
-    fallback: "style-loader",
-    use: [{
-      loader: "css-loader"
-    }, {
-      loader: "sass-loader"
-    }]
+    fallback: 'style-loader',
+    use: [
+      {
+        loader: 'css-loader'
+      },
+      {
+        loader: 'sass-loader'
+      }
+    ]
   }),
   exclude: /\.c\.scss$/
 };
 // compress the js file
-module.exports.plugins.push(
+module.exports[0].plugins.push(
   new webpack.optimize.UglifyJsPlugin({
     comments: false,
     compressor: {
@@ -49,4 +52,4 @@ module.exports.module.loaders[1] = {
 };
 */
 
-module.exports.plugins.push(new ExtractTextPlugin("../css/main.css"));
+module.exports[0].plugins.push(new ExtractTextPlugin('../css/main.css'));
