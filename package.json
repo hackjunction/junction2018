@@ -49,6 +49,7 @@
     "cheerio": "^1.0.0-rc.2",
     "classnames": "^2.2.5",
     "clean-webpack-plugin": "0.1.17",
+    "cors": "^2.8.4",
     "css-loader": "^0.28.5",
     "dotenv": "^4.0.0",
     "eslint": "^4.11.0",
