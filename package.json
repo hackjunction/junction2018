@@ -13,7 +13,6 @@
     "watch": "webpack --watch --config webpack.dev.config.js",
     "build:webpack": "NODE_ENV=production webpack --config webpack.prod.config.js",
     "build:server": "npx babel -d ./build ./server",
-    "build:tracks": "NODE_ENV=production webpack --config webpack.standalone.tracks.config.js",
     "precommit": "lint-staged"
   },
   "lint-staged": {

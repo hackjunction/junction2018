@@ -12,10 +12,6 @@ class PartnerSection extends Component {
     }
   }
   render() {
-    console.log('render');
-    console.log(this.props.partners, this.props.year);
-    console.log(this.props.partners[this.props.year]);
-
     if (!this.props.partners[this.props.year]) return null;
     var partners = this.props.partners[this.props.year].sort((a, b) => b.priority - a.priority);
     var groups = new Map();
