@@ -21,6 +21,9 @@ const Header = () => (
           <nav className={styles.site_nav}>
             <ul>
               <li>
+                <a href="https://live.hackjunction.com">LIVE SITE</a>
+              </li>
+              <li>
                 <Link to="/">HOME</Link>
               </li>
               <li>

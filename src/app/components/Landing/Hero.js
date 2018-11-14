@@ -28,7 +28,9 @@ const Hero = () => (
                 Junction 2018 will gather over 1300 developers, designers and techies under one roof for an awesome
                 weekend of creating. <br />
                 <br />
-                Stay tuned for further updates! <br />
+                <a href="https://live.hackjunction.com">
+                  <button className={styles.button}> GO TO THE LIVE SITE </button>
+                </a>
               </div>
             </div>
           </div>
