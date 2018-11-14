@@ -21,7 +21,7 @@ class Faqs extends Component {
   // render
   render() {
     const { faqs } = this.props;
-    var elements = faqs.map((faq, i) => {
+    var elements = faqs.filter(faq => faq.year === '2018').map((faq, i) => {
       return (
         <Col key={i} xs={12} md={6} className={styles.faqCell}>
           <FaqSection question={faq.question}>

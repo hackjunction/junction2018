@@ -3,13 +3,23 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = require('./webpack.config.js'); // inherit from the main config file
 
 // production env
-module.exports[0].plugins.push(
-  new webpack.DefinePlugin({
-    'process.env': {
-      NODE_ENV: JSON.stringify('production')
-    }
-  })
-);
+module.exports.forEach(function(module) {
+  module.plugins.push(
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
+    })
+  );
+  module.plugins.push(
+    new webpack.optimize.UglifyJsPlugin({
+      comments: false,
+      compressor: {
+        warnings: false
+      }
+    })
+  );
+});
 
 //FROM DEV
 module.exports[0].module.loaders[1] = {
@@ -28,14 +38,6 @@ module.exports[0].module.loaders[1] = {
   exclude: /\.c\.scss$/
 };
 // compress the js file
-module.exports[0].plugins.push(
-  new webpack.optimize.UglifyJsPlugin({
-    comments: false,
-    compressor: {
-      warnings: false
-    }
-  })
-);
 
 /*
 // export css to a separate file
