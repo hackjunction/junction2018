@@ -65,7 +65,7 @@ const Footer = () => (
       <p>
         <a href="https://hackjunction.com/policy">Privacy Policy</a>
         <br />
-        <a href="https://hackjunction.com/terms">Terms of Service</a>
+        <a href="https://hackjunction.com/terms">Terms and Conditions</a>
         <br />
         <a href="https://static.mlh.io/docs/mlh-code-of-conduct.pdf">MLH Code of Conduct</a>
       </p>
