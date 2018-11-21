@@ -12,6 +12,10 @@ import Volunteer from './Volunteer';
 
 class Landing extends React.Component {
   render() {
+    //redirect to live site for now
+    window.location.assign('https://live.hackjunction.com');
+    return null;
+
     return (
       <div>
         {/*<nav className="junction_menu">
