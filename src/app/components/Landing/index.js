@@ -13,7 +13,7 @@ import Volunteer from './Volunteer';
 class Landing extends React.Component {
   render() {
     //redirect to live site for now
-    window.location.assign('https://live.hackjunction.com');
+    window.location.assign('https://hackjunction.com');
     return null;
 
     return (
